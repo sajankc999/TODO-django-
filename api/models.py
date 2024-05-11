@@ -5,5 +5,9 @@ class TODO(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     content = models.TextField()
-    deadline = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    deadline = models.DateTimeField()
     is_completed=models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return self.title
